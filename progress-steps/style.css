@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+:root{
+    --line-border-fill: #3498db;
+    --line-border-empty:#e0e0e0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* To center everything */
+    display: flex; 
+    /* To display flex items vertically */
+    align-items: center;
+    /* To keep content on page center */
+    justify-content: center;
+    height: 100vh;
+    /* To keep Scrollbar invisible */
+    overflow: hidden;
+    margin:0;
+} 
+
+.container{
+    text-align: center;
+}
+
+.progress-container{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+}
+
+/* For getting the gray empty progress bar */
+.progress-container::before{
+    content: '';
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
+    height:4px;
+    width:100%;
+    z-index: -1;
+}
+
+.progress{
+    background-color: var(--line-border-fill);
+    position: absolute;
+    top:50%;
+    left:0;
+    /* To place the progress bar on middle of page */
+    transform: translateY(-50%);
+    height:4px;
+    width:0%;
+    z-index: -1;
+    transition: .4s ease;
+}
+
+.circle{
+    background-color: white;
+    color: #999;
+    border-radius: 50%;
+    height: 30px;
+    width:30px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border:3px solid var(--line-border-empty);
+    transition: .4s ease;
+}
+
+.circle.active{
+    border-color: var(--line-border-fill);
+}
+
+.btn{
+    background-color: var(--line-border-fill);
+    color: white;
+    border:0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+/* btn size shrinks and goes back to original state */
+.btn:active{
+    transform:scale(0.98);
+}
+
+.btn:focus{
+    outline: none;
+}
+
+.btn:disabled{
+    background-color: var(--line-border-empty);
+    cursor: not-allowed;
+}
